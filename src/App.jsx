@@ -23,6 +23,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/mybooking" element={<MyBooking/>} />
         <Route path="/servicedetils/:id" element ={<ServiceDetail />}/>
+        <Route path="/profile" element ={<Profile />}/>
+        
 
     </Routes>
     <Footer />
