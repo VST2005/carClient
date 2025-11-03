@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import MyBooking from './pages/MyBooking'
 import ServiceDetail from './pages/ServiceDetail'
+import Profile from './pages/Profile'
 
 
 

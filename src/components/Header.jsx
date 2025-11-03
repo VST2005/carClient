@@ -2,14 +2,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa"; // npm install react-icons
 import API from "../services/api";
 
+
 function Header() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user")); // ya context se le lo
 
   const handleLogout = async () => {
-    await API.get("/logout", {}, { withCredentials: true });
-    localStorage.removeItem("user");
-    navigate("/login");
+    try {
+      await API.get("/logout");
+      localStorage.removeItem("user");
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+      // Still remove user from localStorage and navigate even if API call fails
+      localStorage.removeItem("user");
+      navigate("/login");
+    }
   };
 
   return (
